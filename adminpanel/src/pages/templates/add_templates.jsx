@@ -64,14 +64,7 @@ const Add_templates = () => {
               <h4 className="page-title">Add Template</h4>
               <div className="ms-auto text-end">
                 <nav aria-label="breadcrumb">
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <a href="#">Home</a>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                      Add Template
-                    </li>
-                  </ol>
+                 
                 </nav>
               </div>
             </div>
@@ -87,7 +80,7 @@ const Add_templates = () => {
                   encType="multipart/form-data"
                 >
                   <div className="card-body">
-                    <h4 className="card-title">Add Template</h4>
+                   
 
                     {/* Category Input */}
                     <div className="form-group row">

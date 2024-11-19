@@ -6,6 +6,7 @@ import Add_templates from "./pages/templates/add_templates";
 import View_templates from "./pages/templates/view_templates";
 import Edit_templates from "./pages/templates/edit_templates";
 import Viewimage_templates from "./pages/templates/viewimage_templates";
+import UserProtected from "./pages/protectedRoutes/userprotectedRoutes";
 function App() {
   return (
    <>
@@ -13,11 +14,16 @@ function App() {
          <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/dashboard" element={<Dashboard/>} />
-          <Route path="/add_templates" element={<Add_templates/>}/>
-          <Route path="/view_templates" element={<View_templates/>}/>
-          <Route path="/edit_templates/:id" element={<Edit_templates/>}/>
-          <Route path="/viewimage_templates/:id" element={<Viewimage_templates/>}/>
+          
+          <Route element={<UserProtected/>}>
+               <Route path="/dashboard" element={<Dashboard/>} />
+               <Route path="/add_templates" element={<Add_templates/>}/>
+               <Route path="/view_templates" element={<View_templates/>}/>
+               <Route path="/edit_templates/:id" element={<Edit_templates/>}/>
+               <Route path="/viewimage_templates/:id" element={<Viewimage_templates/>}/>
+         </Route>
+          
+          
          </Routes>
       </BrowserRouter>
    </>

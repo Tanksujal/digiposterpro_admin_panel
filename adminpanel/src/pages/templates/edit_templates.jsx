@@ -117,14 +117,7 @@ const Edit_templates = () => {
               <h4 className="page-title">Edit Template</h4>
               <div className="ms-auto text-end">
                 <nav aria-label="breadcrumb">
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <a href="#">Home</a>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                      Edit Template
-                    </li>
-                  </ol>
+                 
                 </nav>
               </div>
             </div>

@@ -64,14 +64,7 @@ const View_templates = () => {
               <h4 className="page-title">Templates</h4>
               <div className="ms-auto text-end">
                 <nav aria-label="breadcrumb">
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <a href="#">Home</a>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                      Templates
-                    </li>
-                  </ol>
+                  
                 </nav>
               </div>
             </div>
@@ -85,9 +78,23 @@ const View_templates = () => {
                 <div className="card-body">
                   <div className="d-flex justify-content-between">
                     <h5 className="card-title">Template Table</h5>
-                    <Link to={"/add_templates"} className="btn btn-success">
-                      Add Template
-                    </Link>
+                    <Link
+  to="/add_templates"
+  className="btn btn-success d-flex align-items-center"
+  style={{
+    backgroundColor: "#28a745",
+    color: "#fff",
+    padding: "10px 20px",
+    borderRadius: "6px",
+    fontSize: "1rem",
+    fontWeight: "600",
+    textDecoration: "none",
+    transition: "background-color 0.3s ease",
+  }}
+>
+  <span className="me-2">+</span> Add Template
+</Link>
+
                   </div>
                 </div>
                 <table className="table">

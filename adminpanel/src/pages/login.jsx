@@ -1,26 +1,27 @@
 import axios from 'axios';
-import  { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../App.css'; // Add the updated styles
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const apiurl = import.meta.env.VITE_API_URL
-  const navigate = useNavigate()
+  const apiurl = import.meta.env.VITE_API_URL;
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission
     setLoading(true);
     setErrorMessage('');
-    let obj = {
-        email,password
-    }
+    const obj = { email, password };
+
     try {
-      const response = await axios.post(`${apiurl}/auth/loginUseradmin`,obj,{ withCredentials: true });
+      const response = await axios.post(`${apiurl}/auth/loginUseradmin`, obj, { withCredentials: true });
 
       if (response.data.success) {
-        navigate('/dashboard')
+        navigate('/dashboard');
       } else {
         setErrorMessage(response.data.message || 'Login failed. Please try again.');
       }
@@ -33,89 +34,44 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="main-wrapper">
-        <div className="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-          <div className="auth-box bg-dark border-top border-secondary">
-            <div id="loginform">
-              <div className="text-center pt-3 pb-3">
-                <span className="db">
-                  <img src="../assets/images/logo.png" alt="logo" />
-                </span>
-              </div>
-              <form
-                className="form-horizontal mt-3"
-                id="loginform"
-                onSubmit={handleSubmit}
-              >
-                <div className="row pb-4">
-                  <div className="col-12">
-                    <div className="input-group mb-3">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text bg-success text-white h-100">
-                          <i className="mdi mdi-account fs-4" />
-                        </span>
-                      </div>
-                      <input
-                        type="email"
-                        name="email"
-                        className="form-control form-control-lg"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div className="input-group mb-3">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text bg-warning text-white h-100">
-                          <i className="mdi mdi-lock fs-4" />
-                        </span>
-                      </div>
-                      <input
-                        type="password"
-                        name="password"
-                        className="form-control form-control-lg"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-                {errorMessage && (
-                  <div className="text-danger text-center mb-3">
-                    {errorMessage}
-                  </div>
-                )}
-                <div className="row border-top border-secondary">
-                  <div className="col-12">
-                    <div className="form-group">
-                      <div className="pt-3">
-                        <button
-                          className="btn btn-info"
-                          id="to-recover"
-                          type="button"
-                        >
-                          <i className="mdi mdi-lock fs-4 me-1" /> Lost
-                          password?
-                        </button>
-                        <button
-                          className="btn btn-success float-end text-white"
-                          type="submit"
-                          disabled={loading}
-                        >
-                          {loading ? 'Logging in...' : 'Login'}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-            {/* Add recover password form if needed */}
+    <div className="login-page">
+      <div className="auth-box">
+        <div className="logo-container">
+          <img src="../../f.png" alt="Logo" className="logo" />
+        </div>
+        <h2 className="login-heading">Login to Your Account</h2>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label htmlFor="email" className="input-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              className="input-field"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
+          <div className="input-group">
+            <label htmlFor="password" className="input-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              className="input-field"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
+        </form>
+        <div className="forgot-password">
+          <button className="btn-recover">Forgot Password?</button>
         </div>
       </div>
     </div>

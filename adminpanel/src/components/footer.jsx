@@ -1,11 +1,12 @@
+
+import "../App.css";
+
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer text-center">
-            All Rights Reserved by Matrix-admin. Designed and Developed by <a href="">WrapPixel</a>.
-        </footer>
-    </div>
-  )
-}
+    <footer className="footer">
+      <p>© 2024 Admin Panel. All rights reserved.</p>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
