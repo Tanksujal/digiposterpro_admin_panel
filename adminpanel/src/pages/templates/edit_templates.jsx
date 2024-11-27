@@ -133,17 +133,17 @@ const Edit_templates = () => {
                   encType="multipart/form-data"
                 >
                   <div className="card-body">
-                    <h4 className="card-title">Edit Template</h4>
+                    
 
                     {/* Category Input */}
-                    <div className="form-group row">
+                    <div className="form-group row mt-10">
                       <label
                         htmlFor="category"
                         className="col-sm-3 text-end control-label col-form-label"
                       >
                         Category
                       </label>
-                      <div className="col-sm-9">
+                      <div className="col-sm-9 mt-10">
                         <input
                           type="text"
                           name="category"
@@ -165,7 +165,7 @@ const Edit_templates = () => {
                       >
                         Type
                       </label>
-                      <div className="col-sm-9">
+                      <div className="col-sm-9 mt-10">
                         <select
                           name="type"
                           id="type"
@@ -229,14 +229,14 @@ const Edit_templates = () => {
                     </div>
 
                     {/* New Image Upload */}
-                    <div className="form-group row">
+                    <div className="form-group row ">
                       <label
                         htmlFor="images"
                         className="col-sm-3 text-end control-label col-form-label"
                       >
                         Upload Images
                       </label>
-                      <div className="col-sm-9">
+                      <div className="col-sm-9 mt-10">
                         <input
                           type="file"
                           name="images"
@@ -264,7 +264,7 @@ const Edit_templates = () => {
                       >
                         {loading ? "Updating..." : "Update"}
                       </button>
-                      <a href="/country" className="btn btn-info">
+                      <a href="/view_templates" className="btn btn-info">
                         View
                       </a>
                     </div>

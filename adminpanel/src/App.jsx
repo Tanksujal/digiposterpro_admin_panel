@@ -7,6 +7,8 @@ import View_templates from "./pages/templates/view_templates";
 import Edit_templates from "./pages/templates/edit_templates";
 import Viewimage_templates from "./pages/templates/viewimage_templates";
 import UserProtected from "./pages/protectedRoutes/userprotectedRoutes";
+import Add_Frames from "./pages/frames/add_frames";
+import View_frames from "./pages/frames/view_frames";
 function App() {
   return (
    <>
@@ -14,16 +16,15 @@ function App() {
          <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
-          
           <Route element={<UserProtected/>}>
                <Route path="/dashboard" element={<Dashboard/>} />
                <Route path="/add_templates" element={<Add_templates/>}/>
                <Route path="/view_templates" element={<View_templates/>}/>
                <Route path="/edit_templates/:id" element={<Edit_templates/>}/>
                <Route path="/viewimage_templates/:id" element={<Viewimage_templates/>}/>
+               <Route path="/view_frames" element={<View_frames/>}/>
+               <Route path="/Add_Frames" element={<Add_Frames/>}/>
          </Route>
-          
-          
          </Routes>
       </BrowserRouter>
    </>

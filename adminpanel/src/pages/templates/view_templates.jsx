@@ -26,6 +26,40 @@ const View_templates = () => {
 
     fetchCategories();
   },);
+  const moveCategory = async (index, direction) => {
+    const newCategories = [...categories];
+    const movedCategory = newCategories.splice(index, 1)[0]; // Remove category
+  
+    const newIndex = direction === "up" ? index - 1 : index + 1;
+    newCategories.splice(newIndex, 0, movedCategory); // Insert at new position
+  
+    // Update the `index` field for all categories in the new array
+    const reorderedCategories = newCategories.map((category, idx) => ({
+      ...category,
+      index: idx,
+    }));
+  
+    setCategories(reorderedCategories); // Optimistically update UI
+  
+
+    try {
+      const response = await axios.post(
+        `${apiurl}/category/updateCategoryOrder`,
+        { updatedCategories: reorderedCategories },
+        { withCredentials: true }
+      );
+      if (response.data.success) {
+        alert("Category order updated successfully.");
+      } else {
+        alert("Failed to update category order.");
+      }
+    } catch (error) {
+      console.error("Error updating category order:", error);
+      alert("An error occurred while updating category order.");
+    }
+  };
+  
+  
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this category?");
     if (!confirmDelete) return;
@@ -111,19 +145,34 @@ const View_templates = () => {
                     {categories.length > 0 ? (
                       categories.map((category, index) => (
                         <tr key={category.id || index}>
-                          <td>{index + 1}</td>
+                           <td>
+                           <button
+                              onClick={() => moveCategory(index, "up")}
+                              disabled={index === 0}
+                              className="btn btn-sm btn-blue me-2"
+                            >
+                              ↑ Move Up
+                            </button>
+                            <button
+                              onClick={() => moveCategory(index, "down")}
+                              disabled={index === categories.length - 1}
+                              className="btn btn-sm btn-blue me-2"
+                            >
+                              ↓ Move Down
+                            </button>
+      </td>
                           <td>{category.category}</td> 
                           <td>{category.type}</td>
                           <td>{category.images?.length || 0}</td> 
                           <td>
-                            <Link className="btn btn-primary me-3" to={`/edit_templates/${category._id}`}>
+                            <Link className="btn btn-primary me-5" to={`/edit_templates/${category._id}`}>
                               Edit
                             </Link>
-                            <Link className="btn btn-secondary me-3" to={`/viewimage_templates/${category._id}`}>
+                            <Link className="btn btn-green me-5" to={`/viewimage_templates/${category._id}`}>
                               View
                             </Link>
                             <button
-                              className="btn btn-danger"
+                              className="btn btn-red"
                               onClick={() => handleDelete(category._id)}
                             >
                               {loading ? "Deleting..." : "Delete"}

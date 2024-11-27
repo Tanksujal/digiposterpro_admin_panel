@@ -1,17 +1,15 @@
-
 import "../App.css";
-
 const Header = () => {
   return (
     <header className="header">
       <h1>Welcome to the Admin Panel</h1>
       <div className="profile">
         <img
-          src="https://via.placeholder.com/40"
+          src="../Frame 20 (2).png"
           alt="Profile"
           className="profile-img"
         />
-        <span>Admin</span>
+       
       </div>
     </header>
   );

@@ -139,16 +139,7 @@ const Viewimage_templates = () => {
             <div className="col-12 d-flex no-block align-items-center">
               <h4 className="page-title">View Images</h4>
               <div className="ms-auto text-end">
-                <nav aria-label="breadcrumb">
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                      View Images
-                    </li>
-                  </ol>
-                </nav>
+                
               </div>
             </div>
           </div>
@@ -201,14 +192,14 @@ const Viewimage_templates = () => {
                               <button
                                 onClick={() => moveImage(index, 'up')}
                                 disabled={index === 0}
-                                className="btn btn-sm btn-secondary"
+                                className="btn btn-sm btn-blue me-5"
                               >
                                 ↑
                               </button>
                               <button
                                 onClick={() => moveImage(index, 'down')}
                                 disabled={index === images.length - 1}
-                                className="btn btn-sm btn-secondary"
+                                className="btn btn-sm btn-blue"
                               >
                                 ↓
                               </button>
@@ -223,7 +214,7 @@ const Viewimage_templates = () => {
                             <td>{img._id || "N/A"}</td>
                             <td>
                               <button
-                                className="btn btn-danger"
+                                className="btn btn-red"
                                 onClick={() => handleImageDelete(img._id)}
                               >
                                 Delete
