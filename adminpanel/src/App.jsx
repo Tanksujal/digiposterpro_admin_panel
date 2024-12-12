@@ -11,6 +11,8 @@ import Add_Frames from "./pages/frames/add_frames";
 import View_frames from "./pages/frames/view_frames";
 import GetFeedback from "./pages/feedback/getfeedback";
 import Getusers from "./pages/users/getusers";
+import Add_Banner from "./pages/banner/addbanner";
+import Viewbanner from "./pages/banner/viewbanner";
 function App() {
   return (
    <>
@@ -28,6 +30,8 @@ function App() {
                <Route path="/Add_Frames" element={<Add_Frames/>}/>
                <Route path="/feedback" element={<GetFeedback/>}/>
                <Route path="/users" element={<Getusers/>}/>
+               <Route path="/addbanner" element={<Add_Banner/>}/>
+               <Route path="/viewbanner" element={<Viewbanner/>}/>
          </Route>
          </Routes>
       </BrowserRouter>

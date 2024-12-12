@@ -11,7 +11,9 @@ const Sidebar = () => {
         <li><Link to="/users">User</Link></li>
         <li><Link to="/view_templates">Templates</Link></li>
         <li><Link to="/view_frames">Frames</Link></li>
+        <li><Link to="/viewbanner">Banner</Link></li>
         <li><Link to="/feedback">Feedbacks</Link></li>
+        
       </ul>
     </div>
   );
