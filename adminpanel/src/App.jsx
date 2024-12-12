@@ -9,6 +9,8 @@ import Viewimage_templates from "./pages/templates/viewimage_templates";
 import UserProtected from "./pages/protectedRoutes/userprotectedRoutes";
 import Add_Frames from "./pages/frames/add_frames";
 import View_frames from "./pages/frames/view_frames";
+import GetFeedback from "./pages/feedback/getfeedback";
+import Getusers from "./pages/users/getusers";
 function App() {
   return (
    <>
@@ -24,6 +26,8 @@ function App() {
                <Route path="/viewimage_templates/:id" element={<Viewimage_templates/>}/>
                <Route path="/view_frames" element={<View_frames/>}/>
                <Route path="/Add_Frames" element={<Add_Frames/>}/>
+               <Route path="/feedback" element={<GetFeedback/>}/>
+               <Route path="/users" element={<Getusers/>}/>
          </Route>
          </Routes>
       </BrowserRouter>

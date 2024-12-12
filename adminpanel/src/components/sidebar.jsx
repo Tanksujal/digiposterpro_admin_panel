@@ -8,9 +8,10 @@ const Sidebar = () => {
       <h2></h2>
       <ul>
         <li><Link to="/dashboard">Dashboard</Link></li>
+        <li><Link to="/users">User</Link></li>
         <li><Link to="/view_templates">Templates</Link></li>
         <li><Link to="/view_frames">Frames</Link></li>
-        <li><Link to="/settings">Settings</Link></li>
+        <li><Link to="/feedback">Feedbacks</Link></li>
       </ul>
     </div>
   );
